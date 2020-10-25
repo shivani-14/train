@@ -1,0 +1,72 @@
+
+
+<html>  
+<head>  
+    <title>signup</title>  
+    <script>  
+        var Database_Name = 'details';  
+        var Version = 1.0;  
+        var Text_Description = 'sign up ';  
+        var Database_Size =  2 *1024 * 1024;  
+        var dbObj = openDatabase(Database_Name, Version, Text_Description, Database_Size);  
+        dbObj.transaction(function (tx) {  
+            tx.executeSql('CREATE TABLE IF NOT EXISTS credentials2(username, password)');  
+        });  
+  
+        function Insert() {  
+            var username = document.getElementById("uname").value;  
+            var password = document.getElementById("pass").value;    
+            dbObj.transaction(function (tx) {  
+                tx.executeSql('insert into credentials2(username, password) values("' + username + '","' + password + '")');  
+            });  
+        }  
+        dbObj.transaction(function (tx) {  
+            tx.executeSql('SELECT * FROM credentials2', [], function (tx, results) {  
+                var len = results.rows.length, i;  
+                var str = '';  
+                for (i = 0; i < len; i++) {  
+                str += "<tr>";  
+                str += "<td>" + results.rows.item(i).uname + "</td>";  
+                str += "<td>" + results.rows.item(i).pass + "</td>";  
+                str += "</tr>";  
+                document.getElementById("tblGrid").innerHTML += str;  
+                str = '';  
+                }  
+            }, null);  
+        });  
+    </script>  
+</head>  
+<body>  
+    <p id="hh"></p>  
+    <form id="frm1">  
+        <table>  
+            <tr>  
+                <td>username:</td>  
+                <td><input type="text" id="uname" /></td>  
+            </tr>  
+            <tr>  
+                <td>password:</td>  
+                <td><input type="password" id="pass" /></td>  
+            </tr> 
+            <tr>  
+               <td><button id="btnInsert" onclick="Insert()">Insert</button></td>  
+            </tr>  
+        </table>  
+    </form>  
+    <table id="tblGrid" cellpadding="10px" cellspacing="0" border="1">  
+        <tr style="background-color:black;color:white;font-size:18px;">  
+            <td>  
+                uname  
+            </td>  
+            <td>  
+                password 
+            </td>  
+            
+        </tr>  
+    </table>  
+</body>  
+</html>
+
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<meta charset=utf-8 />
+	<title>JavaScript program to calculate multiplication and division of two numbers 
+	</title>
+	<style type="text/css">
+		body {
+			margin: 30px;
+		}
+	</style> 
+	<script type="text/javascript">
+		function addBy(){
+			num1 = parseInt(document.getElementById("a").value);
+        	num2 = parseInt(document.getElementById("b").value);
+        	document.getElementById("result").innerHTML = num1 + num2;
+        }
+
+		function subtractBy() { 
+        	num1 = document.getElementById("a").value;
+        	num2 = document.getElementById("b").value;
+			document.getElementById("result").innerHTML = num1 - num2;
+		}
+
+		function multiplyBy(){
+			num1 = document.getElementById("a").value;
+        	num2 = document.getElementById("b").value;
+        	document.getElementById("result").innerHTML = num1 * num2;
+        }
+
+		function divideBy() { 
+        	num1 = document.getElementById("a").value;
+        	num2 = document.getElementById("b").value;
+			document.getElementById("result").innerHTML = num1 / num2;
+		}
+	</script>
+</head>
+<body>
+	<h1>
+	<form>
+		a : <input type="text" id="a" /><br>
+		b : <input type="text" id="b" /><br><br>
+
+		<input type="button" onClick="addBy()" Value="Addition" />
+		<input type="button" onClick="subtractBy()" Value="Subtraction" />
+		<input type="button" onClick="multiplyBy()" Value="Multiply" />
+		<input type="button" onClick="divideBy()" Value="Divide" />
+	</form>
+	
+		<p>The Result is : <br>
+			<span id = "result"></span>
+		</p>
+	</h1>
+</body>
+</html>

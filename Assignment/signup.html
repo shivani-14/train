@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>signup</title>
+	<script type="text/javascript">
+		function submit(){
+            var str = '';  
+                 
+                str += "<tr>";  
+                str += "<td>" + document.getElementById('username').value + "</td>"; 
+                str += "<td>" + document.getElementById('password').value + "</td>";  
+                str += "</tr>";  
+                document.getElementById("tblGrid").innerHTML += str;  
+
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<h1>
+			username: <input type="text" name="" id="username" >
+			<br>
+			password: <input type="password" name="" id="password">
+			<br>
+			<input type="button" name="" value="signup" onClick="submit()">
+			<br>
+			<h1>CREDENTIALS</h1>
+			<span id="credentials"></span>
+			<br>
+			 <table  border="1">  
+			 	<tr>  
+			 		<td>  
+			 			username  
+            		</td> 
+            		<td>  
+               			password
+            		</td>  
+        		</tr>  
+    		</table>  
+		</h1>
+	</div>
+</body>
+</html>
+

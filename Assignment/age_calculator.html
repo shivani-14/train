@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function age(){
+            
+            var born = document.getElementById('born').value;
+            var today = document.getElementById('today').value;
+  
+          
+            var born1 = new Date(born);
+            var today1 = new Date(today);
+            const _MS_PER_DAY = 1000 * 60 * 60 * 24 * 365;
+    		const day1 = Date.UTC(born1.getFullYear(), born1.getMonth(), born1.getDate());
+    		const day2 = Date.UTC(today1.getFullYear(), today1.getMonth(), today1.getDate());
+    		if(born1 > today1){
+    			document.getElementById('display').innerHTML = " enter valid age";
+    		}
+    		else{
+    		var age=Math.floor((day2 - day1) / _MS_PER_DAY);
+    		document.getElementById('display').innerHTML = age;
+    		} 
+
+		}
+
+	</script>
+</head>
+<body>
+	<h1>
+		AGE CALCULATOR
+		<br>
+	birthday: <input type="text" id="born"  pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/" placeholder="YYYY-MM-DD"><br>
+	today: <input type="text" id="today" pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/" placeholder="YYYY-MM-DD"><br>
+	<input type="button" onClick="age()" value="calculate">
+	<br>
+	AGE : 
+	<span id="display"></span>
+</h1>
+
+</body>
+</html>

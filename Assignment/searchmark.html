@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="refresh" content="10">
+  <script type="text/javascript">
+    function search() {
+      var searched = document.getElementById("search").value.trim();
+      if (searched !== "") {
+        var text = document.getElementById("highlight").innerHTML;
+        var re = new RegExp(searched,"g"); // search for all instances
+        var newText = text.replace(re, `<mark>${searched}</mark>`);
+        document.getElementById("highlight").innerHTML = newText;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Find it.</h1>
+  <input type="text" id="search" placeholder="enter text" />
+  <input type="button" name="" onclick="search()" value="find">
+  <p id="highlight">
+    react makes it painless to create interactive uis. design simple views for each state in your application, and react will efficiently update and render just the right components when your data changes.
+    jsx is optional and not required to use react. try the babel repl to see the raw javascript code produced by the jsx compilation step.
+    a stateful component.
+    in addition to taking input data (accessed via this.props), a component can maintain internal state data (accessed via this.state). when a component’s state data changes, the rendered markup will be updated by re-invoking render().
+
+  </p>
+</body>
+</html>
