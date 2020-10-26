@@ -15,6 +15,7 @@
 		}
 		var records=[];
 
+		var cnt=0;
 		function saveRecord(){
 			var val1=document.getElementById('txt1').value
 			var val2=document.getElementById('txt2').value
@@ -24,6 +25,10 @@
 			var emp=new Employees(val1,val2,val3,val4)
 			records.push(emp)
 			alert("Records saved")
+
+			cnt=parseInt(cnt)+parseInt(1);
+     		var divData=document.getElementById("showCount");
+     		divData.innerHTML="total number of records: ("+cnt +")";
 		}
 
 		function displayRecords(){
@@ -34,7 +39,7 @@
 			document.getElementById('d1').innerHTML=str;
 		}
 
-				function popRecords(){
+		function popRecords(){
 			var val1=document.getElementById('txt1').value
 			var val2=document.getElementById('txt2').value
 			var val3=document.getElementById('txt3').value
@@ -45,7 +50,24 @@
 			alert("Records deleted")
 		}
 
+		function modifyRecords(){
+			var val1=document.getElementById('txt1').innerHTML="101";
+			var val2=document.getElementById('txt2').innerHTML="abhi";
+			var val3=document.getElementById('txt3').innerHTML="52000"
+			var val4=document.getElementById('txt4').innerHtml="13-09-2020"
 
+			var emp=new Employees(val1,val2,val3,val4)
+			records.pop(emp)
+			records.push(emp)
+			alert("Records modified")
+
+			var str="";
+			for(i=0;i<records.length;i++){
+				str+=records[i].showEmployeeDetails();
+			}
+
+			document.getElementById('d1').innerHTML=str;
+		}
 
 	</script>
 </head>
@@ -56,12 +78,13 @@ Enter name :<input type="text" name="" id="txt2"> <br>
 Enter salary <input type="text" name="" id="txt3"> <br>
 Enter joiningDate <input type="date" name="" id="txt4"> <br>
 <br>
+<div id="showCount"></div>
 <input type="button" name="" onclick="saveRecord()" value="SaveRecord"> 
 <input type="button" name="" onclick="displayRecords()" value="DisplayRecords"> 
 <input type="button" name="" onclick="popRecords()" value="pop"> 
 <input type="button" name="" onclick="modifyRecords()" value="modify">
-<input type="button" name="" onclick="totalRecords()" value="TotalRecords"> 
-<input type="button" name="" onclick="order()" value="ascending order">
+
+<!-- <input type="button" name="" onclick="order()" value="ascending order"> -->
 
 <div id="d1"></div>
 </body>
