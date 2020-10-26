@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function Employees(empId,name,salary,joiningDate){
+			this.empId=empId;
+			this.name=name;
+			this.salary=salary;
+			this.joiningDate=joiningDate;
+
+			this.showEmployeeDetails=function(){
+				return "<br>Values are "+this.empId+" "+this.name+" "+this.salary+" "+this.joiningDate
+			}
+		}
+		var records=[];
+
+		function saveRecord(){
+			var val1=document.getElementById('txt1').value
+			var val2=document.getElementById('txt2').value
+			var val3=document.getElementById('txt3').value
+			var val4=document.getElementById('txt4').value
+
+			var emp=new Employees(val1,val2,val3,val4)
+			records.push(emp)
+			alert("Records saved")
+		}
+
+		function displayRecords(){
+			var str="";
+			for(i=0;i<records.length;i++){
+				str+=records[i].showEmployeeDetails();
+			}
+			document.getElementById('d1').innerHTML=str;
+		}
+
+				function popRecords(){
+			var val1=document.getElementById('txt1').value
+			var val2=document.getElementById('txt2').value
+			var val3=document.getElementById('txt3').value
+			var val4=document.getElementById('txt4').value
+
+			var emp=new Employees(val1,val2,val3,val4)
+			records.pop(emp)
+			alert("Records deleted")
+		}
+
+
+
+	</script>
+</head>
+<body>
+
+Enter empId :<input type="text" name="" id="txt1"> <br>
+Enter name :<input type="text" name="" id="txt2"> <br>
+Enter salary <input type="text" name="" id="txt3"> <br>
+Enter joiningDate <input type="date" name="" id="txt4"> <br>
+<br>
+<input type="button" name="" onclick="saveRecord()" value="SaveRecord"> 
+<input type="button" name="" onclick="displayRecords()" value="DisplayRecords"> 
+<input type="button" name="" onclick="popRecords()" value="pop"> 
+<input type="button" name="" onclick="modifyRecords()" value="modify">
+<input type="button" name="" onclick="totalRecords()" value="TotalRecords"> 
+<input type="button" name="" onclick="order()" value="ascending order">
+
+<div id="d1"></div>
+</body>
+</html>
+
