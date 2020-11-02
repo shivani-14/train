@@ -67,7 +67,7 @@ class App16 extends React.Component {
               <input type="text" ref={this.password} />
             </div>
             <div>
-              <button onClick={this.handleSubmit.bind(this)}>Submit</button>
+              <button onClick={this.handleSubmit.bind(this)}>Signup</button>
             </div>
             <h1> {this.state.value}</h1>
           
