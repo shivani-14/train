@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+    
+    <bean id="add1" class="com.training.org.Address">
+	    <constructor-arg value="101" type="String"></constructor-arg>
+	    <constructor-arg value="Ars" type="String"></constructor-arg>
+	    <constructor-arg value="1001" type="String"></constructor-arg>
+	    <constructor-arg value="1001" type="String"></constructor-arg>
+    </bean> 
+   <!-- <bean id="empBean" class="com.training.org.Employee">
+		<property name="empId" value="101"></property>
+		<property name="name" value="p"></property>
+		<property name="salary" value="1000"></property>
+		<property name="address" ref="add1"></property>
+    </bean>  --> 
+    
+    <bean id="prj1" class="com.training.com.Project">
+    	<constructor-arg value="prj101" type="String"></constructor-arg>
+    	<constructor-arg value="PhramaProject" type="String"></constructor-arg>
+    	<constructor-arg value="ABC" type="String"></constructor-arg>
+    </bean>
+    <bean id="prj2" class="com.training.com.Project">
+    	<constructor-arg value="prj102" type="String"></constructor-arg>
+    	<constructor-arg value="DbsProject" type="String"></constructor-arg>
+    	<constructor-arg value="YFG" type="String"></constructor-arg>
+    </bean>
+    <bean id="prj3" class="com.training.com.Project">
+    	<constructor-arg value="prj103" type="String"></constructor-arg>
+    	<constructor-arg value="PhramaProject" type="String"></constructor-arg>
+    	<constructor-arg value="EFG" type="String"></constructor-arg>
+    </bean>
+     <bean id="empBean" class="com.training.org.Employee">
+	    <constructor-arg value="101" type="int"></constructor-arg>
+	    <constructor-arg value="Ars" type="String"></constructor-arg>
+	    <constructor-arg value="10000" type="double"></constructor-arg>
+	    <constructor-arg ref="add1" ></constructor-arg>
+	    <constructor-arg>
+	    	<list>
+	    		<value>C++</value>
+	    		<value>React JS</value>
+	    		<value>Java</value>
+	    		<value>Data structures</value>
+	    		
+	    	</list>
+	    </constructor-arg>
+	    <constructor-arg>
+	    <list>
+	    	<ref bean="prj1"/>
+	    	<ref bean="prj2"/>
+	    	<ref bean="prj3"/>
+	    </list>
+	    </constructor-arg>
+    </bean>  
+
+</beans> 
